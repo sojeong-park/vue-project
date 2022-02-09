@@ -6,15 +6,19 @@
         {{parentMessage}}
 
         <button @click="counter">children count 증가</button>
+        <p>
+            {{message}}
+        </p>
     </div>
 </template>
 
 <script lang="ts">
-    import {Component, Prop, Vue, Watch, Emit} from 'vue-property-decorator'
+    import {Component, Prop, Vue, Watch, Emit, Inject} from 'vue-property-decorator'
 
     @Component
     export default class Children extends Vue {
         @Prop() parentMessage?: string;
+        
         alertMessage: string = '';
 
         @Watch('parentMessage')
@@ -26,5 +30,7 @@
         counter() {
             console.log('pass');
         }
+
+        @Inject() readonly message!: string;
     }
 </script>

@@ -4,15 +4,16 @@
     <message></message>
     <!-- <children :parentMessage="inputMessage"></children>
     <button @click="changeMessage">메시지를 바꿔주자</button> -->
-    <children @counter="counter"></children>
+    <!-- <children @counter="counter"></children>
     <div>
       부모에서 숫자를 보여준다 {{count}}
-    </div>
+    </div> -->
+    <children></children>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Provide } from 'vue-property-decorator';
 import message from '@/components/message.vue';
 import children from '@/components/children.vue';
 
@@ -33,5 +34,7 @@ export default class Home extends Vue {
   counter() {
     this.count++;
   }
+
+  @Provide('message') msg: string = 'provide inject test';
 }
 </script>
