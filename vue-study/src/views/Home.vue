@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <message></message>
     <children :parentMessage="inputMessage"></children>
+    <button @click="changeMessage">메시지를 바꿔주자</button>
   </div>
 </template>
 
@@ -19,5 +20,9 @@ import children from '@/components/children.vue';
 })
 export default class Home extends Vue {
   inputMessage: string = '동적데이터 입력';
+
+  changeMessage() {
+    this.inputMessage = 'change!!';
+  }
 }
 </script>
