@@ -2,8 +2,12 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <message></message>
-    <children :parentMessage="inputMessage"></children>
-    <button @click="changeMessage">메시지를 바꿔주자</button>
+    <!-- <children :parentMessage="inputMessage"></children>
+    <button @click="changeMessage">메시지를 바꿔주자</button> -->
+    <children @counter="counter"></children>
+    <div>
+      부모에서 숫자를 보여준다 {{count}}
+    </div>
   </div>
 </template>
 
@@ -20,9 +24,14 @@ import children from '@/components/children.vue';
 })
 export default class Home extends Vue {
   inputMessage: string = '동적데이터 입력';
-
+  count: number = 0;
+  
   changeMessage() {
     this.inputMessage = 'change!!';
+  }
+
+  counter() {
+    this.count++;
   }
 }
 </script>
