@@ -9,8 +9,11 @@
       부모에서 숫자를 보여준다 {{count}}
     </div> -->
     <!-- <children></children> -->
-    <checkbox v-model="checked" @change="changeText"></checkbox>
-      {{text}}
+    <!-- <checkbox v-model="checked" @change="changeText"></checkbox>
+      {{text}} -->
+
+    <drop1></drop1>
+    <drop2></drop2>
   </div>
 </template>
 
@@ -19,12 +22,16 @@ import { Component, Vue, Provide } from 'vue-property-decorator';
 import message from '@/components/message.vue';
 import children from '@/components/children.vue';
 import checkbox from '@/components/myCheckbox.vue';
+import drop1 from '@/components/dropdown1.vue';
+import drop2 from '@/components/dropdown2.vue';
 
 @Component({
   components: {
     message,
     children,
     checkbox,
+    drop1,
+    drop2,
   },
 })
 
